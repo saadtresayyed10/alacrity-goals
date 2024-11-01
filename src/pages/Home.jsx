@@ -1,3 +1,5 @@
+import SignUp from "../_components/SignUp";
+
 const Home = () => {
   return (
     <div className="w-full min-h-screen bg-gradient-to-b text-white text-center from-blue-950 to-black flex justify-center items-center flex-col lg:gap-y-12">
@@ -18,9 +20,10 @@ const Home = () => {
           Sign Up
         </button>
         <button className="lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold bg-transparent border-white border-2 text-white rounded-full">
-          Sign In
+          Login
         </button>
       </div>
+      <SignUp />
     </div>
   );
 };
