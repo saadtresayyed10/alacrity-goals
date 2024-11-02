@@ -89,8 +89,8 @@ const Home = () => {
         </motion.button>
         <motion.button
           onClick={handleLoginButton}
-          // variants={loginButtonAnimation}
-          // animate={control}
+          variants={loginButtonAnimation}
+          animate={control}
           className={`lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold rounded-full ${
             activeComponent === "login"
               ? "bg-white text-blue-950"
