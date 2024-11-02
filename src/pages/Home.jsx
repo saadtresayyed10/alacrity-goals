@@ -17,9 +17,9 @@ const Home = () => {
     setActiveComponent("signup");
   };
 
-  const goToLogin = () => {
-    setActiveComponent("login");
-  };
+  // const goToLogin = () => {
+  //   setActiveComponent("login");
+  // };
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-b text-white text-center from-blue-950 to-black flex justify-center items-center flex-col lg:gap-y-12">
@@ -57,7 +57,7 @@ const Home = () => {
           Login
         </button>
       </div>
-      {activeComponent === "login" && <Login />}
+      {activeComponent === "login" && <Login goToSignUp={goToSignUp} />}
       {activeComponent === "signup" && <SignUp />}
     </div>
   );
