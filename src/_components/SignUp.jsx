@@ -1,27 +1,74 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const SignUp = () => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const { name, email, password, confirmPassword } = user;
+
+  const onInputChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
+    setUser({
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+  };
+
   return (
     <div className="flex justify-center items-center p-10 border-2 border-white rounded-lg">
-      <form className="flex justify-center items-center flex-col lg:gap-y-6 text-blue-950 bg-transparent">
+      <form
+        onSubmit={(e) => onSubmit(e)}
+        className="flex justify-center items-center flex-col lg:gap-y-6 text-blue-950 bg-transparent"
+      >
         <input
           type="text"
           placeholder="Enter Name:"
+          name="name"
+          value={name}
+          onChange={(e) => onInputChange(e)}
+          autoComplete="off"
+          required
           className="font-metana lg:text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
         />
         <input
           type="email"
           placeholder="Enter Email:"
+          name="email"
+          value={email}
+          onChange={(e) => onInputChange(e)}
+          autoComplete="off"
+          required
           className="font-metana lg:text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
         />
         <input
           type="password"
           placeholder="Enter Password:"
+          name="password"
+          value={password}
+          onChange={(e) => onInputChange(e)}
+          autoComplete="off"
+          required
           className="font-metana lg:text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
         />
         <input
           type="password"
           placeholder="Confirm Password:"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={(e) => onInputChange(e)}
+          autoComplete="off"
+          required
           className="font-metana lg:text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
         />
         <div className="flex justify-center items-center flex-col lg:gap-y-4">
