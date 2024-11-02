@@ -76,8 +76,8 @@ const Home = () => {
       </div>
       <div ref={ref} className="flex items-center lg:gap-x-16">
         <motion.button
-          // variants={signupButtonAnimation}
-          // animate={control}
+          variants={signupButtonAnimation}
+          animate={control}
           onClick={handleSignUpButton}
           className={`lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold rounded-full ${
             activeComponent === "signup"
