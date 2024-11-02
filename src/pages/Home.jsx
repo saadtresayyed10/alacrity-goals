@@ -1,6 +1,18 @@
+import { useState } from "react";
 import SignUp from "../_components/SignUp";
+import Login from "../_components/Login";
 
 const Home = () => {
+  const [activeComponent, setActiveComponent] = useState("login");
+
+  const handleSignUpButton = () => {
+    setActiveComponent("signup");
+  };
+
+  const handleLoginButton = () => {
+    setActiveComponent("login");
+  };
+
   return (
     <div className="w-full min-h-screen bg-gradient-to-b text-white text-center from-blue-950 to-black flex justify-center items-center flex-col lg:gap-y-12">
       <div className="flex justify-center items-center flex-col lg:gap-y-8 lg:p-20">
@@ -16,14 +28,29 @@ const Home = () => {
         </p>
       </div>
       <div className="flex items-center lg:gap-x-16">
-        <button className="lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold bg-white text-blue-950 rounded-full">
+        <button
+          onClick={handleSignUpButton}
+          className={`lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold rounded-full ${
+            activeComponent === "signup"
+              ? "bg-white text-blue-950"
+              : "bg-transparent border-2 border-white text-white"
+          }`}
+        >
           Sign Up
         </button>
-        <button className="lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold bg-transparent border-white border-2 text-white rounded-full">
+        <button
+          onClick={handleLoginButton}
+          className={`lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold rounded-full ${
+            activeComponent === "login"
+              ? "bg-white text-blue-950"
+              : "bg-transparent border-2 border-white text-white"
+          }`}
+        >
           Login
         </button>
       </div>
-      <SignUp />
+      {activeComponent === "login" && <Login />}
+      {activeComponent === "signup" && <SignUp />}
     </div>
   );
 };
