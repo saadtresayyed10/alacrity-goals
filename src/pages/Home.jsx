@@ -1,10 +1,14 @@
 import { useState } from "react";
 import SignUp from "../_components/SignUp";
 import Login from "../_components/Login";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Home = () => {
   const [activeComponent, setActiveComponent] = useState("login");
+
+  const control = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2 });
 
   const handleSignUpButton = () => {
     setActiveComponent("signup");
