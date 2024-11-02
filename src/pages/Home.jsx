@@ -8,11 +8,13 @@ const Home = () => {
   const [activeComponent, setActiveComponent] = useState("login");
 
   const control = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
+  const [ref, inView] = useInView({ threshold: 0.1 });
 
   useEffect(() => {
     if (inView) {
       control.start("visible");
+    } else {
+      control.start("hidden");
     }
   }, [inView, control]);
 
@@ -20,16 +22,16 @@ const Home = () => {
     hidden: { opacity: 0, x: 30 },
     visible: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: { duration: 0.4, ease: "easeOut", delay: 0.4 },
     },
   };
 
   const loginButtonAnimation = {
-    hidden: { opacity: 0, x: 30 },
+    hidden: { opacity: 0, x: -30 },
     visible: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: { duration: 0.4, ease: "easeOut", delay: 0.4 },
     },
   };
@@ -77,6 +79,7 @@ const Home = () => {
       <div ref={ref} className="flex items-center lg:gap-x-16">
         <motion.button
           variants={signupButtonAnimation}
+          initial="hidden"
           animate={control}
           onClick={handleSignUpButton}
           className={`lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold rounded-full ${
@@ -90,6 +93,7 @@ const Home = () => {
         <motion.button
           onClick={handleLoginButton}
           variants={loginButtonAnimation}
+          initial="hidden"
           animate={control}
           className={`lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold rounded-full ${
             activeComponent === "login"
