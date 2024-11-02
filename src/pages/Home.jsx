@@ -13,6 +13,14 @@ const Home = () => {
     setActiveComponent("login");
   };
 
+  const goToSignUp = () => {
+    setActiveComponent("signup");
+  };
+
+  const goToLogin = () => {
+    setActiveComponent("login");
+  };
+
   return (
     <div className="w-full min-h-screen bg-gradient-to-b text-white text-center from-blue-950 to-black flex justify-center items-center flex-col lg:gap-y-12">
       <div className="flex justify-center items-center flex-col lg:gap-y-8 lg:p-20">
