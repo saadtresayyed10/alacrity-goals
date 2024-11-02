@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignUp from "../_components/SignUp";
 import Login from "../_components/Login";
 import { motion, useAnimation } from "framer-motion";
@@ -9,6 +9,30 @@ const Home = () => {
 
   const control = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    }
+  }, [inView, control]);
+
+  const signupButtonAnimation = {
+    hidden: { opacity: 0, x: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut", delay: 0.4 },
+    },
+  };
+
+  const loginButtonAnimation = {
+    hidden: { opacity: 0, x: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut", delay: 0.4 },
+    },
+  };
 
   const handleSignUpButton = () => {
     setActiveComponent("signup");
@@ -50,8 +74,10 @@ const Home = () => {
           them moving forward.
         </motion.p>
       </div>
-      <div className="flex items-center lg:gap-x-16">
+      <div ref={ref} className="flex items-center lg:gap-x-16">
         <motion.button
+          // variants={signupButtonAnimation}
+          // animate={control}
           onClick={handleSignUpButton}
           className={`lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold rounded-full ${
             activeComponent === "signup"
@@ -63,6 +89,8 @@ const Home = () => {
         </motion.button>
         <motion.button
           onClick={handleLoginButton}
+          // variants={loginButtonAnimation}
+          // animate={control}
           className={`lg:px-8 lg:py-2 font-metana uppercase lg:text-sm font-semibold rounded-full ${
             activeComponent === "login"
               ? "bg-white text-blue-950"
