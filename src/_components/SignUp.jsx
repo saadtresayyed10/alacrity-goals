@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SignUp = () => {
+const SignUp = ({ goToLogin }) => {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -72,7 +72,10 @@ const SignUp = () => {
           className="font-metana lg:text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
         />
         <div className="flex justify-center items-center flex-col lg:gap-y-4">
-          <p className="lg:text-xs font-metana text-white uppercase lg:mt-8 cursor-pointer">
+          <p
+            onClick={goToLogin}
+            className="lg:text-xs font-metana text-white uppercase lg:mt-8 cursor-pointer"
+          >
             Account already exists?
           </p>
           <button className="lg:px-8 lg:py-2 font-metana uppercase lg:text-xs font-semibold bg-white hover:bg-transparent text-blue-950 hover:text-white duration-100 border-2 border-white rounded-full">
