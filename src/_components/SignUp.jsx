@@ -29,7 +29,7 @@ const SignUp = ({ goToLogin }) => {
     <div className="flex justify-center items-center p-10 border-2 border-white rounded-lg">
       <form
         onSubmit={(e) => onSubmit(e)}
-        className="flex justify-center items-center flex-col lg:gap-y-6 text-blue-950 bg-transparent"
+        className="flex justify-center items-center flex-col gap-y-6 text-blue-950 bg-transparent"
       >
         <input
           type="text"
@@ -39,7 +39,7 @@ const SignUp = ({ goToLogin }) => {
           onChange={(e) => onInputChange(e)}
           autoComplete="off"
           required
-          className="font-metana lg:text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
+          className="font-metana text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
         />
         <input
           type="email"
@@ -49,7 +49,7 @@ const SignUp = ({ goToLogin }) => {
           onChange={(e) => onInputChange(e)}
           autoComplete="off"
           required
-          className="font-metana lg:text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
+          className="font-metana text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
         />
         <input
           type="password"
@@ -59,7 +59,7 @@ const SignUp = ({ goToLogin }) => {
           onChange={(e) => onInputChange(e)}
           autoComplete="off"
           required
-          className="font-metana lg:text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
+          className="font-metana text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
         />
         <input
           type="password"
@@ -69,16 +69,16 @@ const SignUp = ({ goToLogin }) => {
           onChange={(e) => onInputChange(e)}
           autoComplete="off"
           required
-          className="font-metana lg:text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
+          className="font-metana text-sm p-2 uppercase bg-transparent text-white border-b border-white focus:border-b-2 focus:outline-none"
         />
         <div className="flex justify-center items-center flex-col lg:gap-y-4">
           <p
             onClick={goToLogin}
-            className="lg:text-xs font-metana text-white uppercase lg:mt-8 cursor-pointer"
+            className="text-xs font-metana text-white uppercase lg:mt-8 mt-6 mb-2 lg:mb-0 cursor-pointer"
           >
             Account already exists?
           </p>
-          <button className="lg:px-8 lg:py-2 font-metana uppercase lg:text-xs font-semibold bg-white hover:bg-transparent text-blue-950 hover:text-white duration-100 border-2 border-white rounded-full">
+          <button className="lg:px-8 px-6 py-2 font-metana uppercase text-xs font-semibold bg-white hover:bg-transparent text-blue-950 hover:text-white duration-100 border-2 border-white rounded-full">
             Create Account
           </button>
         </div>
